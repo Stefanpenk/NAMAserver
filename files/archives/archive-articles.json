@@ -1,0 +1,62 @@
+[
+  {
+    "id": "l96ux4sy",
+    "title": "TYTUL BLOGA",
+    "text": "Moj blog.",
+    "imgUrl": "https://firebasestorage.googleapis.com/v0/b/foocoding-react-project.appspot.com/o/BlogImages%2Fl96uh43zDryRobes.jpg?alt=media&token=db6378bc-e0cf-4b58-978e-045b258678de",
+    "date": "2022/10/13",
+    "rating": [{ "user": "stefan.penk@gmail.com", "number": 4 }],
+    "author": "Sandra",
+    "authorImg": "https://firebasestorage.googleapis.com/v0/b/foocoding-react-project.appspot.com/o/ProfileImages%2Fframe_20_delay-0.15s.jpg?alt=media&token=ac279ebc-6683-4076-ac9a-0d3e118f6de9",
+    "comments": [
+      {
+        "id": "l96v4nb1",
+        "user": "stefan.penk@gmail.com",
+        "date": "2022/10/13",
+        "text": "New comment.",
+        "profileImg": "https://firebasestorage.googleapis.com/v0/b/foocoding-react-project.appspot.com/o/ProfileImages%2Fl95s5kymframe_08_delay-0.15s.jpg?alt=media&token=81c739f6-6580-4fc6-8fac-739a59036f01"
+      }
+    ]
+  },
+  {
+    "id": "l96v28u0",
+    "title": "TYTUL BLOGA",
+    "text": "Newest blog.",
+    "imgUrl": "https://firebasestorage.googleapis.com/v0/b/foocoding-react-project.appspot.com/o/BlogImages%2Fl96v1ywgprofile-background.webp?alt=media&token=d422da47-e4e0-48be-b18c-d2c80c1a0718",
+    "date": "2022/10/13",
+    "rating": [],
+    "author": "Stefan",
+    "authorImg": "https://firebasestorage.googleapis.com/v0/b/foocoding-react-project.appspot.com/o/ProfileImages%2Fl95s5kymframe_08_delay-0.15s.jpg?alt=media&token=81c739f6-6580-4fc6-8fac-739a59036f01",
+    "comments": []
+  },
+  {
+    "id": "l95udvuh",
+    "title": "TYTUL BLOGA",
+    "text": "Moj osobisty blog.",
+    "imgUrl": "https://firebasestorage.googleapis.com/v0/b/foocoding-react-project.appspot.com/o/BlogImages%2Fl95u9us1no-recipes.jpeg?alt=media&token=1ab3b7d6-3ab4-4387-9e82-3e6a57a7653e",
+    "date": "2022/10/12",
+    "rating": [{ "user": "stefan.penk@gmail.com", "number": 3 }],
+    "author": "Stefan",
+    "authorImg": "https://firebasestorage.googleapis.com/v0/b/foocoding-react-project.appspot.com/o/ProfileImages%2Fl95s5kymframe_08_delay-0.15s.jpg?alt=media&token=81c739f6-6580-4fc6-8fac-739a59036f01",
+    "comments": [
+      {
+        "id": "l95up6sl",
+        "user": "stefan.penk@gmail.com",
+        "date": "2022/10/12",
+        "text": "hey ho",
+        "profileImg": "https://firebasestorage.googleapis.com/v0/b/foocoding-react-project.appspot.com/o/ProfileImages%2Fl95s5kymframe_08_delay-0.15s.jpg?alt=media&token=81c739f6-6580-4fc6-8fac-739a59036f01"
+      }
+    ]
+  },
+  {
+    "id": "l977a0xg",
+    "title": "Blog Title",
+    "text": "New Blog",
+    "imgUrl": "https://firebasestorage.googleapis.com/v0/b/foocoding-react-project.appspot.com/o/BlogImages%2Fl9779l4i637897-312x231.jpeg?alt=media&token=37119987-b8b2-4798-b585-e295e18a9203",
+    "date": "2022/10/13",
+    "rating": [],
+    "author": "Stefan",
+    "authorImg": "https://firebasestorage.googleapis.com/v0/b/foocoding-react-project.appspot.com/o/ProfileImages%2Fl96wlttaframe_38_delay-0.15s.jpg?alt=media&token=3f447d9b-0ced-49fa-82fe-8d34ba6903b0",
+    "comments": []
+  }
+]
