@@ -6,10 +6,12 @@ const fsp = require("fs").promises;
 const fse = require("fs-extra");
 const app = express();
 
+const PORT = process.env.PORT || 8080;
+
 app.use(cors());
 app.use(express.json());
 
-app.listen(8080, () => console.log("API is running on https://localhost:8080"));
+app.listen(PORT, () => console.log(`API is running on ${PORT}`));
 
 //CREATE ACCOUNT
 app.post("/register", (req, res) => {
