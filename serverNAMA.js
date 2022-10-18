@@ -412,7 +412,7 @@ app.get("/archiveblogs", (req, res) => {
   sendArchiveBlogs();
 });
 
-//RESTORE BLOG FROM ARCHIVE
+//RESTORE BLOG FROM ARCHIVE FOLDER
 app.post("/restoreblog", (req, res) => {
   const data = req.body;
   const restoreBlog = async (data) => {
