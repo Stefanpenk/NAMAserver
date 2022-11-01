@@ -3,6 +3,6 @@
   "user": "alan@gmail.com",
   "password": "password1",
   "name": "Alan",
-  "profileImg": "https://firebasestorage.googleapis.com/v0/b/foocoding-react-project.appspot.com/o/ProfileImages%2Fframe_31_delay-0.15s.jpg?alt=media&token=1bc33903-79ec-4290-91a0-187592af657d",
+  "profileImg": "",
   "recipes": []
 }
