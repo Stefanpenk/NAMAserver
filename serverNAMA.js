@@ -4,13 +4,15 @@ const path = require("path");
 const fs = require("fs");
 const fsp = require("fs").promises;
 const fse = require("fs-extra");
+const multer = require("multer");
 const app = express();
 
 const PORT = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(express.json());
-
+app.use(express.static(path.join(__dirname, "files", "imgs")));
+console.log(path.join(__dirname, "files", "imgs"));
 app.listen(PORT, () => console.log(`API is running on ${PORT}`));
 
 //CREATE ACCOUNT
@@ -461,27 +463,116 @@ app.post("/restoreblog", (req, res) => {
 
 //CHANGE PROFILE PICTURE
 //SEND COMMENT
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, "files", "imgs", "profile_imgs"));
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
+
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 102400 },
+  fileFilter: (req, file, cb) => {
+    if (
+      file.mimetype == "image/png" ||
+      file.mimetype == "image/jpg" ||
+      file.mimetype == "image/jpeg" ||
+      file.mimetype == "image/webp"
+    ) {
+      cb(null, true);
+    } else {
+      return cb(new Error("Only .png, .jpg .jpeg and .webp format allowed."));
+    }
+  },
+}).single("file");
+
 app.post("/changeprofilepicture", (req, res) => {
-  const data = req.body;
-  const { user, profileImg } = data;
+  upload(req, res, function (err) {
+    if (err instanceof multer.MulterError) {
+      res.send({ res: err });
+    } else if (err) {
+      console.log(err);
+      res.send({ res: err, message: err.message });
+    } else {
+      const lastProfileImgLink = req.body.profile_img;
+      const lastProfileImg = lastProfileImgLink.substring(
+        lastProfileImgLink.lastIndexOf("/") + 1
+      );
+      const lastProfileImgPath = path.join(
+        __dirname,
+        "files",
+        "imgs",
+        "profile_imgs",
+        lastProfileImg
+      );
+      const user = req.body.user;
+      const profileImg = `http://localhost:8080/profile_imgs/${req.file.filename}`;
+      const changeProfilePicture = async () => {
+        fs.readFile(`./files/users/${user}.json`, (err, data) => {
+          const obj = JSON.parse(data);
+          const newData = { ...obj, profileImg };
+          const json = JSON.stringify(newData);
+          fs.writeFile(`./files/users/${user}.json`, json, (err) => {
+            if (err) {
+              console.log("writeFile error", err);
+            } else {
+              fs.unlinkSync(lastProfileImgPath);
+              console.log("saved");
+            }
+          });
 
-  const changeProfilePicture = async () => {
-    fs.readFile(`./files/users/${user}.json`, (err, data) => {
-      const obj = JSON.parse(data);
-      const newData = { ...obj, profileImg };
-      const json = JSON.stringify(newData);
-      fs.writeFile(`./files/users/${user}.json`, json, (err) => {
-        if (err) {
-          console.log("writeFile error", err);
-        } else {
-          console.log("saved");
-        }
-      });
+          res.send({
+            res: newData,
+          });
+        });
+      };
+      changeProfilePicture();
+    }
+  });
+});
 
+//upload blog picture
+const blogStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, "files", "imgs", "blog_imgs"));
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
+
+const blogUpload = multer({
+  storage: blogStorage,
+  limits: { fileSize: 512000 },
+  fileFilter: (req, file, cb) => {
+    if (
+      file.mimetype == "image/png" ||
+      file.mimetype == "image/jpg" ||
+      file.mimetype == "image/jpeg" ||
+      file.mimetype == "image/webp"
+    ) {
+      cb(null, true);
+    } else {
+      return cb(new Error("Only .png, .jpg .jpeg and .webp format allowed."));
+    }
+  },
+}).single("file");
+
+app.post("/blogpicture", (req, res) => {
+  blogUpload(req, res, function (err) {
+    if (err instanceof multer.MulterError) {
+      res.send({ res: err });
+    } else if (err) {
+      console.log(err);
+      res.send({ res: err, message: err.message });
+    } else {
+      const blogImg = `http://localhost:8080/blog_imgs/${req.file.filename}`;
       res.send({
-        res: newData,
+        res: blogImg,
       });
-    });
-  };
-  changeProfilePicture();
+    }
+  });
 });

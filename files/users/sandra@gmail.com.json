@@ -1,1 +1,8 @@
-{"token":"admin","user":"sandra@gmail.com","password":"password","name":"Sandra","profileImg":"https://firebasestorage.googleapis.com/v0/b/foocoding-react-project.appspot.com/o/ProfileImages%2Fframe_20_delay-0.15s.jpg?alt=media&token=ac279ebc-6683-4076-ac9a-0d3e118f6de9","recipes":[]}
+{
+  "token": "test123",
+  "user": "sandra@gmail.com",
+  "password": "password",
+  "name": "Sandra",
+  "profileImg": "https://firebasestorage.googleapis.com/v0/b/foocoding-react-project.appspot.com/o/ProfileImages%2Fframe_20_delay-0.15s.jpg?alt=media&token=ac279ebc-6683-4076-ac9a-0d3e118f6de9",
+  "recipes": []
+}
