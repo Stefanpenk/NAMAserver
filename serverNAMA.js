@@ -312,6 +312,33 @@ app.get("/getusers", (req, res) => {
     });
 });
 
+//GET USERS IMG
+app.get("/getusersimg", (req, res) => {
+  const usersDirectory = "./files/users";
+  fse
+    .readdir(usersDirectory)
+    .then((filenames) => {
+      return filenames.map((filename) => path.join(usersDirectory, filename));
+    })
+    .then((filepaths) => {
+      return filepaths.map((filepath) =>
+        fse
+          .readFile(filepath)
+          .then((filecontents) => JSON.parse(filecontents))
+          .then((json) => {
+            const { recipes, password, token, name, ...userData } = json;
+            return userData;
+          })
+      );
+    })
+    .then((mailcontents) => Promise.all(mailcontents))
+    .then((realcontents) => {
+      res.send({
+        users: realcontents,
+      });
+    });
+});
+
 //DELETE USER
 app.post("/deleteuser", (req, res) => {
   const data = req.body;
@@ -509,7 +536,11 @@ app.post("/changeprofilepicture", (req, res) => {
         lastProfileImg
       );
       const user = req.body.user;
-      const profileImg = `http://localhost:8080/profile_imgs/${req.file.filename}`;
+      const profileImg = path.join(
+        __dirname,
+        "profile_imgs",
+        req.file.filename
+      );
       const changeProfilePicture = async () => {
         fs.readFile(`./files/users/${user}.json`, (err, data) => {
           const obj = JSON.parse(data);
@@ -569,7 +600,7 @@ app.post("/blogpicture", (req, res) => {
       console.log(err);
       res.send({ res: err, message: err.message });
     } else {
-      const blogImg = `http://localhost:8080/blog_imgs/${req.file.filename}`;
+      const blogImg = path.join(__dirname, "blog_imgs", req.file.filename);
       res.send({
         res: blogImg,
       });

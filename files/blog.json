@@ -13,8 +13,7 @@
         "id": "lascvb8",
         "user": "krzysiek",
         "date": "2022/10/03",
-        "text": "Hey, this is my comment.",
-        "profileImg": ""
+        "text": "Hey, this is my comment."
       }
     ]
   },
@@ -38,8 +37,7 @@
         "id": "l9ab0ywl",
         "user": "kate@gmail.com",
         "date": "2022/10/15",
-        "text": "Great article, but too short for me.",
-        "profileImg": ""
+        "text": "Great article, but too short for me."
       }
     ]
   },
@@ -60,8 +58,7 @@
         "id": "l96uarxb",
         "user": "pawel@gmail.com",
         "date": "2022/10/13",
-        "text": "Hey, that is a great idea.",
-        "profileImg": "https://firebasestorage.googleapis.com/v0/b/foocoding-react-project.appspot.com/o/ProfileImages%2Fl960jl18frame_05_delay-0.15s.jpg?alt=media&token=af46bd5c-cac1-4f61-bbca-c331b57723dd"
+        "text": "Hey, that is a great idea."
       }
     ]
   },
@@ -99,8 +96,7 @@
         "id": "l98golwh",
         "user": "stefan.penk@gmail.com",
         "date": "2022/10/14",
-        "text": "Works!",
-        "profileImg": "https://firebasestorage.googleapis.com/v0/b/foocoding-react-project.appspot.com/o/ProfileImages%2Fl96wlttaframe_38_delay-0.15s.jpg?alt=media&token=3f447d9b-0ced-49fa-82fe-8d34ba6903b0"
+        "text": "Works!"
       }
     ]
   },
