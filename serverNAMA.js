@@ -550,6 +550,7 @@ app.post("/changeprofilepicture", (req, res) => {
             if (err) {
               console.log("writeFile error", err);
             } else {
+              if (!lastProfileImgLink) return;
               fs.unlinkSync(lastProfileImgPath);
               console.log("saved");
             }
