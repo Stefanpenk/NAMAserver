@@ -536,11 +536,7 @@ app.post("/changeprofilepicture", (req, res) => {
         lastProfileImg
       );
       const user = req.body.user;
-      const profileImg = path.join(
-        __dirname,
-        "profile_imgs",
-        req.file.filename
-      );
+      const profileImg = `https://api.stefanpenk.com/profile_imgs/${req.file.filename}`;
       const changeProfilePicture = async () => {
         fs.readFile(`./files/users/${user}.json`, (err, data) => {
           const obj = JSON.parse(data);
@@ -601,7 +597,7 @@ app.post("/blogpicture", (req, res) => {
       console.log(err);
       res.send({ res: err, message: err.message });
     } else {
-      const blogImg = path.join(__dirname, "blog_imgs", req.file.filename);
+      const blogImg = `https://api.stefanpenk.com/blog_imgs/${req.file.filename}`;
       res.send({
         res: blogImg,
       });
